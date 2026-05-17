@@ -16,3 +16,13 @@ Could establish that the connection is active but IP is not resolved by running 
 restarted Pi's OS networking.
 ### sudo networkctl renew eth0
 resolved addressing and connection by requesting for IP address.
+
+## Setting up SSH Auth keys.
+In the imaging proccess I already predefined SSH installation before booting and installing the Ubuntu Server OS.
+### ssh-keygen
+generated ssh key in the windows powershell terminal.
+### type $env:USERPROFILE\.ssh\id_ed25519.pub | ssh raspi@raspberry-pi-5 "cat >> ~/.ssh/authorized_keys"
+Copied the public key:\
+"$env:USERPROFILE\.ssh\id_ed25519.pub"\
+Piped to ssh into my Pi and append the public key into the authorized_keys file:\
+ssh raspi@raspberry-pi-5 "cat >> ~/.ssh/authorized_keys"
