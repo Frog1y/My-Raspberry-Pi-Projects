@@ -35,19 +35,20 @@ First I had to find the Netplan config file:\
 resulted in "50-cloud-init.yaml" config file
 ### sudo nano /etc/netplan/50-cloud-init.yaml
 Updated the yaml config file to the following:\
+"""\
+  network:\
+  version: 2\
+  renderer: networkd\
+  ethernets:\
+    eth0: # My interface / Ethernet connection\
+      dhcp4: no\
+      addresses:\
+        - 192.168.x.200/24 # My desired static IP and subnet\
+      routes:\
+        - to: default\
+          via: 192.168.x.1 # My gateway/router IP\
+      nameservers:\
+        addresses: [8.8.8.8, 1.1.1.1] # Your DNS server\
 """
-  network:
-  version: 2
-  renderer: networkd
-  ethernets:
-    eth0: # My interface / Ethernet connection
-      dhcp4: no
-      addresses:
-        - 192.168.x.200/24 # My desired static IP and subnet
-      routes:
-        - to: default
-          via: 192.168.x.1 # My gateway/router IP
-      nameservers:
-        addresses: [8.8.8.8, 1.1.1.1] # Your DNS server
-"""
-### ip a - Pi is now reachable on my LAN IPv4 address: x.x.x.200
+### ip a
+Pi is now reachable on my LAN IPv4 address: x.x.x.200
