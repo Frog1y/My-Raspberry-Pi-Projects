@@ -26,3 +26,28 @@ Copied the public key:\
 "$env:USERPROFILE\.ssh\id_ed25519.pub"\
 Piped to ssh into my Pi and append the public key into the authorized_keys file:\
 ssh raspi@raspberry-pi-5 "cat >> ~/.ssh/authorized_keys"
+
+## Configuring a static IP address on my Pi - Without router setting.
+I can not access my router setting on my LAN.\
+On Ubuntu Server, network configuration is managed via Netplan.\
+First I had to find the Netplan config file:\
+### ls /etc/netplan/
+resulted in "50-cloud-init.yaml" config file
+### sudo nano /etc/netplan/50-cloud-init.yaml
+Updated the yaml config file to the following:\
+"""
+  network:
+  version: 2
+  renderer: networkd
+  ethernets:
+    eth0: # My interface / Ethernet connection
+      dhcp4: no
+      addresses:
+        - 192.168.x.200/24 # My desired static IP and subnet
+      routes:
+        - to: default
+          via: 192.168.x.1 # My gateway/router IP
+      nameservers:
+        addresses: [8.8.8.8, 1.1.1.1] # Your DNS server
+"""
+### ip a - Pi is now reachable on my LAN IPv4 address: x.x.x.200
