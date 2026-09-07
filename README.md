@@ -1,7 +1,7 @@
 #Raspberry-Pi
 
 # Navigation:
-pass
+[PiHole](https://github.com/Frog1y/My-Raspberry-Pi-Projects/tree/main/Pihole)
 
 # Hardware:
 ## Raspberry Pi 5
