@@ -1,6 +1,7 @@
 # Docker
 ## compose.yaml -- ports, persisting volumes
 
+```yaml
 services:
   pihole:
     container_name: pihole
@@ -19,7 +20,7 @@ services:
       #- "123:123/udp"
     environment:
       # Set the appropriate timezone for your location from
-      # https://en.wikipedia.org/wiki/List_of_tz_database_time_zones, e.g:
+      # [https://en.wikipedia.org/wiki/List_of_tz_database_time_zones](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones), e.g:
       TZ: 'Europe/Ljubljana'
       # Set a password to access the web interface. Not setting one will result in a random password being assigned
       FTLCONF_webserver_api_password: ''
@@ -32,7 +33,7 @@ services:
       # Uncomment the below if you have custom dnsmasq config files that you want to persist.
       #- './etc-dnsmasq.d:/etc/dnsmasq.d'
     cap_add:
-      # See https://docs.pi-hole.net/docker/configuration/#note-on-capabilities
+      # See [https://docs.pi-hole.net/docker/configuration/#note-on-capabilities](https://docs.pi-hole.net/docker/configuration/#note-on-capabilities)
       # Required if you are using Pi-hole as your DHCP server, else not needed
       - NET_ADMIN
       # Required if you are using Pi-hole as your NTP client to be able to set the host's system time
