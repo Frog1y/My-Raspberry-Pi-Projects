@@ -1,5 +1,6 @@
 # Docker
 ## compose.yaml -- ports, persisting volumes
+
 services:
   pihole:
     container_name: pihole
@@ -10,7 +11,7 @@ services:
       - "53:53/udp"
       # Default HTTP Port
       - "80:80/tcp"
-      # Default HTTPs Port. FTL will generate a self-signed certificate
+      # Default HTTPS Port. FTL will generate a self-signed certificate
       - "443:443/tcp"
       # Uncomment the below if using Pi-hole as your DHCP Server
       #- "67:67/udp"
@@ -28,7 +29,8 @@ services:
     volumes:
       # For persisting Pi-hole's databases and common configuration file
       - './etc-pihole:/etc/pihole'
-      # Uncomment the below if you have custom dnsmasq config files that you want to persist. Not needed for most starting fresh with Pi-hole v6. If you're upgrading from v5 you and have used this directory before, you sh>      #- './etc-dnsmasq.d:/etc/dnsmasq.d'
+      # Uncomment the below if you have custom dnsmasq config files that you want to persist.
+      #- './etc-dnsmasq.d:/etc/dnsmasq.d'
     cap_add:
       # See https://docs.pi-hole.net/docker/configuration/#note-on-capabilities
       # Required if you are using Pi-hole as your DHCP server, else not needed
