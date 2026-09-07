@@ -1,11 +1,10 @@
-# Raspberry-Pi
+# Raspberry-Pi 5
 Linux Ubuntu
 
 # Navigation:
 [PiHole](https://github.com/Frog1y/My-Raspberry-Pi-Projects/tree/main/Pihole)
 
 # Hardware:
-## Raspberry Pi 5
 ### RAM
 4GB LPDDR4X-4267 SDRAM
 ### CPU
