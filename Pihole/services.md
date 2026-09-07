@@ -1,7 +1,7 @@
 # Docker
 ## compose.yaml -- ports, persisting volumes
-common config files and persisting database > ./pihole/etc-pihole\
-compose.yaml > ./pihole
+common config files and persisting database path > ./pihole/etc-pihole\
+compose.yaml path > ./pihole
 
 
 ```yaml
