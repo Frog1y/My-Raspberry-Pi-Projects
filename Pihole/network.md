@@ -1,3 +1,6 @@
+#Network
+##LAN
+
 static ipv4\
 192.168.64.200\
 \
