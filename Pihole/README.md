@@ -3,5 +3,5 @@
 
 Pi-hole is a free, open-source network-wide ad blocker and DNS sinkhole.\
 Blocks ads, tracking from known 3rd party ad sites.\
-Admin panel - http://<server ip address>/admin\
+Admin panel - http://<server>/admin\
 Runs inside a docker container, see: [services.md](https://github.com/Frog1y/My-Raspberry-Pi-Projects/blob/main/Pihole/services.md)
