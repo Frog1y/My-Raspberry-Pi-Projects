@@ -4,6 +4,7 @@ My Raspberry Pi server.
 
 # Navigation:
 [PiHole](https://github.com/Frog1y/My-Raspberry-Pi-Projects/tree/main/Pihole)
+[Samba Network Share](https://github.com/Frog1y/My-Raspberry-Pi-Projects/tree/main/Samba-network-share)
 
 # Hardware:
 ### RAM
