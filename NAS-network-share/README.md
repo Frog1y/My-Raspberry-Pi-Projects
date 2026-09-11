@@ -2,7 +2,7 @@
 
 Shared folder in user's home directory /home/raspi/samba-share\
 Samba user: raspi\
-Mapped share address: \\192.168.64.200\raspi-share\
+Mapped share address:\\192.168.64.200\raspi-share\
 Samba config /etc/samba/smb.conf:
 ```yaml
 [raspi-share]
