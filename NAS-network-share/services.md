@@ -1,2 +1,2 @@
-Samba SMB
+# Samba SMB
 Packages: samba, samba-common-bin
