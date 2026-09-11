@@ -1,4 +1,5 @@
 # Docker
+Pihole is ran inside a Docker container. Using the below compose.yaml config file.
 ## compose.yaml -- ports, persisting volumes
 common config files and persisting database path > ./pihole/etc-pihole\
 compose.yaml path > ./pihole
