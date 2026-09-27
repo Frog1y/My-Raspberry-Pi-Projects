@@ -1,5 +1,9 @@
-## Incident
-The outage resulted from a circular dependency lock between domain name resolution, Tailscale's control plane, and system time synchronization.
+## Incident 27. 9. 2026 - Power outrage, Tailscale, DNS resolution, NTP time sync
+Trigger: Power loss on a Raspberry Pi 5 without an RTC battery caused the system clock to reset to an outdated timestamp.\
+Failure: Upon boot, Tailscale overwrote /etc/resolv.conf to 100.100.100.100. The outdated system time broke TLS certificate validation for tailscaled, causing its local DNS proxy to stop forwarding public domain queries.\
+Deadlock: chrony could not resolve NTP server hostnames (pool.ntp.org) because DNS was down, while Tailscale could not validate TLS certificates to restore DNS because system time was incorrect.\
+Resolution: Bypassed Tailscale by manually setting nameserver 1.1.1.1 in /etc/resolv.conf, allowing chrony to resolve NTP servers and sync system time, then permanently disabled Tailscale DNS overrides via tailscale up --accept-dns=false.
+
 
 ```text
 [ Application / User CLI Commands ]
