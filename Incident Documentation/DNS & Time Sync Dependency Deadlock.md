@@ -1,29 +1,26 @@
-## 1. System Architecture & Interconnections
-
-Understanding how system components interact clarifies why a failure in one area cascaded across the entire host:
+## Incident
+The outage resulted from a circular dependency lock between domain name resolution, Tailscale's control plane, and system time synchronization.
 
 ```text
-[ User Commands / Applications ]
-               │
-               ▼
-       /etc/resolv.conf ────────────────► (Points system queries to active DNS resolver)
-               │
-       ┌───────┴──────────────────────────────┐
-       ▼                                      ▼
+[ Application / User CLI Commands ]
+                │
+                ▼
+        /etc/resolv.conf ──────────────► Points system queries to active resolver
+                │
+        ┌───────┴──────────────────────────────┐
+        ▼                                      ▼
 systemd-resolved                     Tailscale Subnet / MagicDNS
 (Local Stub: 127.0.0.53)             (Local Stub: 100.100.100.100)
-       │                                      │
-       ▼                                      ▼
+        │                                      │
+        ▼                                      ▼
 Upstream DNS Servers                 Encrypted Tailnet / Overridden Routes
-(1.1.1.1 / 8.8.8.8)            
-       │
-       ▼
-NTP / Time Synchronization (Chrony)
-  ├── Requires functional DNS to resolve pool.ntp.org
-  └── Synchronized system clock required for TLS, SSH, & Security Handshakes
-
-## 3. Diagnostics & Remediation Workflow
-
+(1.1.1.1 / 8.8.8.8)
+        │
+        ▼
+NTP / Time Sync Daemon (chrony)
+  ├── Requires active DNS resolution to query pool.ntp.org
+  └── Synchronized system clock required for TLS handshakes & SSH authentication
+```  
 ### Phase 1: Breaking the Dependency Loop
 
 Bypass Tailscale's unresponsive local stub (`100.100.100.100`) and instruct Linux to send DNS queries directly to Cloudflare's public resolver:
