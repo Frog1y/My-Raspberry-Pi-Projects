@@ -2,7 +2,7 @@
 
 **Date:** September 27, 2026  
 **System:** Raspberry Pi 5  
-**Affected Services:** Tailscane, DNS resolution, NTP  
+**Affected Services:** Tailscale, DNS resolution, NTP  
 
 ### Trigger:
 Power loss on a Raspberry Pi 5 without an RTC battery caused the system clock to reset to an outdated timestamp.
