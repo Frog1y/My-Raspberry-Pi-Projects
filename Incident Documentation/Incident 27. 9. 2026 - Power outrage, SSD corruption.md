@@ -15,7 +15,7 @@ A sudden, ungraceful power loss across the residential electrical grid caused ca
 ## 2. Diagnostics & Findings
 
 * **Direct Monitor Diagnostics:** Connecting a display to the Raspberry Pi 5 during startup revealed persistent kernel I/O hangs and read/write timeouts during initialization.
-* **Secondary Machine Diagnostics:** Attaching the SSD to a secondary Linux workstation confirmed extreme disk degradation. Accessing simple text files on the surviving boot partition triggered severe latency, indicating corrupt block structures and hung I/O queues.
+* **Secondary Machine Diagnostics:** Attaching the SSD to a secondary Windows workstation confirmed extreme disk degradation. Accessing simple text files on the surviving boot partition triggered severe latency, indicating corrupt block structures and hung I/O queues.
 * **GUI Formatting Attempt:** Formatting via standard GUI Disk Utility tools failed due to continuous I/O blocking and excessive processing timeouts.
 
 ---
@@ -29,10 +29,10 @@ To bypass GUI I/O timeouts, the drive was completely re-partitioned via low-leve
 ### Terminal Commands Executed (`diskpart`)
 
 ```cmd
-# Open diskpart prompt
+# Open diskpart
 diskpart
 
-# Run the following diskpart commands:
+# diskpart commands:
 list disk
 select disk X   # (Replace X with your SSD's disk number from the list)
 clean           # (Erases the partition table instantly without reading metadata)
