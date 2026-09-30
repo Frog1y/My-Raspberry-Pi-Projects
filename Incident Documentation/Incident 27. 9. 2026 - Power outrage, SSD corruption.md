@@ -1,6 +1,6 @@
 # Incident Report: Storage Media Corruption & Recovery
 
-**Date:** September 30, 2026  
+**Date:** September 27, 2026  
 **System:** Raspberry Pi 5  
 **Affected Component:** NVMe/SATA External SSD (Root, Boot, and OS Partitions)  
 
