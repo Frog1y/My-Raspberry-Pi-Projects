@@ -1,4 +1,9 @@
-## Incident 27. 9. 2026 - Power outrage, Tailscale, DNS resolution, NTP time sync
+# Incident Report: Tailscale, DNS, NTP time sync
+
+**Date:** September 27, 2026  
+**System:** Raspberry Pi 5  
+**Affected Services:** Tailscane, DNS resolution, NTP  
+
 ### Trigger:
 Power loss on a Raspberry Pi 5 without an RTC battery caused the system clock to reset to an outdated timestamp.
 ### Failure:
