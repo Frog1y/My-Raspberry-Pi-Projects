@@ -21,6 +21,8 @@ AC 100 - 240V, 50/60Hz Input\
 5.1V - 5.0A DC; 9.0V - 3.0A DC; 12.0V - 2.25A DC; 15.0V - 1.8A DC; Output
 ### SSD
 External, portable SSD TX100 500GB
+### UPS
+Geekworm X1201, 2-Cell 18650 5.1V 5A UPS HAT
 
 # Network
 ## LAN
