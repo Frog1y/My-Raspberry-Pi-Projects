@@ -4,4 +4,7 @@
 Enabled RDP. Opened port 3389/tcp firewall. Enables remote desktop connection.
 
 ## raspberry-pi-5
-Enabled tailscale SSH. Enables tailnet ssh sessions (using tailnet ips & host names).  
+Enabled tailscale SSH. Enables tailnet ssh sessions (using tailnet ips & host names).
+
+## laptop
+Standard remote access point.
