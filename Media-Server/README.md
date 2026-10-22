@@ -1,7 +1,7 @@
 # Media Server 
 
-Fully automated LAN media server. Running in a fleet of docker containers.\
-You request practically any movie or show -> the server requests, finds, downloads and serves content.
+Fully automated LAN media server using Jellyfin and the *arr stack. Running in a fleet of docker containers.\
+You request practically any movie or show -> the server requests, finds, downloads and serves your content in Jellyfin (Netflix style UI).
 
 # Setup
 If you are interested in installing and configuring this stack yourself, feel free to use my documentation:
@@ -10,10 +10,10 @@ LINK
 
 🔗 ```My Specs```
 
-```⚠ NOTE: ⚠``` Every note, step, structure, documentation is based on my own setup which is Linux Ubuntu 26.04 LTS.\
-You can run this stack in a Windows enviornment aswell but this documentation only covers setup in Linux.
+```Prerequisites:``` A linux server/VM.\
+```Recommended specs:``` 4GB+ RAM. 50GB+ Storage. The more the merrier.\
 
-## Services/Docker containers:
+## Services/Docker Containers:
 ```Jellyfin```
 A free, open-source media server that streams your movies, TV shows, and music to your devices with a Netflix-style interface.\
 ```Seerr```
@@ -65,7 +65,7 @@ The table below highlights every service's respective address and port.
 | **Bazarr** | Downloads subtitles | `6767` | `http://YOUR_IP:6767` |
 | **FlareSolverr** | Bypass Cloudflare on indexers | `8191` | `/` |
 
-## Media Server folder structure
+## Media Server Folder Structure
 ```
 ~/media-server/ 
 ├── docker-compose.yml
@@ -87,14 +87,14 @@ The table below highlights every service's respective address and port.
 ├── seerr/               <- Seerr config/logs
 └── flaresolverr/        <- FlareSolverr config/logs
 ```
-You can use ~/ as your starting path. This is your users home directory. Or you can create this structure anywhere you wish.\
 
 
 ## Usage
 
-You navigate into your server folder. In my case its ~/media-server.\
-You issue a docker command ```sudo docker compose up -d```\
-Your docker containers, and the full app stack is now running\
-After everything is configured (see:LINK)\
-You can now use the full stack from their respective web UIs.\
-You can update the stack from: LINK (I recommend you run this on schedule)
+* You browse and request any movie or tv show on **Seerr** ```http://YOUR_IP:5055```.
+* The media will be monitored and downloaded in the background.
+* Once that process completes you can watch your media in **Jellyfin** ```http://YOUR_IP:8096```.
+
+If you wish to delete media to free up space on your storage devices, the best way to do so is from the Sonarr/Radarr web UIs: ```http://YOUR_IP:8989``` ```http://YOUR_IP:7878```.\
+Update your stack every now and then or use a script to update it automatically on a schedule.\
+You can download the Jellyfin App on most smart TVs. Or just watch it from any browser on your PC.
