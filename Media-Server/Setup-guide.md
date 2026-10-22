@@ -4,7 +4,7 @@ Follow the steps to set up your very own automated Jellyfin + *arr stack media s
 ```NOTE:``` Some of these services frequently update their UI so some steps might be outdated. But the principles will remain the same so if you cannot find something mentioned in the steps below, Google it.
 
 # docker-compose-yml
-[docker-compose.yml]([https://github.com/Frog1y/My-Raspberry-Pi-Projects/blob/main/Media-Server/docker-compose.yml])
+[docker-compose.yml](https://github.com/Frog1y/My-Raspberry-Pi-Projects/blob/main/Media-Server/docker-compose.yml)
 
 Take a look at this file and understand it. If you'll ever change storage, locations, networks etc. this is the file you'll be modifying.
 
@@ -51,7 +51,7 @@ mkdir -p ~/media-server/jellyfin/media/downloads
 touch ~/media-server/docker-compose.yaml
 ```
 
-4. Copy the ```docker-compose.yaml``` from [docker-compose.yml]([[https://link-url-here.org](https://github.com/Frog1y/My-Raspberry-Pi-Projects/blob/main/Media-Server/docker-compose.yml)]) and open the file you just created with any text editor like ```nano``` and paste.
+4. Copy the ```docker-compose.yaml``` from [docker-compose.yml](https://github.com/Frog1y/My-Raspberry-Pi-Projects/blob/main/Media-Server/docker-compose.yml) and open the file you just created with any text editor like ```nano``` and paste.
 ```
 nano ~/media-server/docker-compose.yaml
 -> PASTE
