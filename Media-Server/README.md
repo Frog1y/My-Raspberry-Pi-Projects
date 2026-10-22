@@ -69,7 +69,6 @@ The table below highlights every service's respective address and port.
 ```
 ~/media-server/ 
 ├── docker-compose.yml
-├── update-media-stack.sh    <- pulls latest images & restarts the stack
 │
 ├── jellyfin/
 │   ├── config/          <- Jellyfin config, users, watch history
