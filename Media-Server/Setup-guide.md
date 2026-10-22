@@ -3,7 +3,7 @@
 Follow the steps to set up your very own automated Jellyfin + *arr stack media server.\
 ```NOTE:``` Some of these services frequently update their UI so some steps might be outdated. But the principles will remain the same so if you cannot find something mentioned in the steps below, Google it.
 
-# docker-compose-yml
+# docker-compose-yml 🐳
 [docker-compose.yml](https://github.com/Frog1y/My-Raspberry-Pi-Projects/blob/main/Media-Server/docker-compose.yml)
 
 Take a look at this file and understand it. If you'll ever change storage, locations, networks etc. this is the file you'll be modifying.
@@ -240,3 +240,4 @@ Search by **name** -> select **Base URL** -> add **flaresolverr tag** if needed 
 * I recommend you set up a simple script and schedule it to run every now and then to update your system and docker containers. Or use watchtower.
 * If you have enough storage you can create a script that auto requests media from Seerr and prunes that media from your machine on a schedule if you truly want a completely hands-off experience.
 * Consider implementing a VPN to mask your downloading activies.
+* Make backups. Either full host system snapshots, images or just the whole **~/media-server** directory. Backup local and external, consider cloud also.
