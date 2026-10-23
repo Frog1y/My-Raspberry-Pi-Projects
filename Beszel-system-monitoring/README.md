@@ -1,7 +1,6 @@
-# Beszel - Simple, lightweight server monitoring
+# Beszel - Simple, lightweight server monitoring tool
 
 <img width="408" height="166" alt="image" src="https://github.com/user-attachments/assets/49b5a24b-2c37-4bda-9aed-97e573f4a6a8" />
-
 
 Beszel is a lightweight server monitoring tool.\
 The setup requires a Beszel monitoring server + an agent on any of your machines you want to monitor.\
