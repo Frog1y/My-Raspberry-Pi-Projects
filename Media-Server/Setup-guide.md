@@ -57,6 +57,13 @@ nano ~/media-server/docker-compose.yaml
 -> PASTE
 ```
 
+5. OPTIONAL - Create your update-logs/ directory if you wish to use the update-server.sh script.
+```
+mkdir ~/media-server/update-logs
+nano ~/media-server/update-server.sh
+-> PASTE the code from update-server.sh
+```
+
 # 3. Run docker containers and set permissions.
 
 1. Run your docker containers from the compose file.
