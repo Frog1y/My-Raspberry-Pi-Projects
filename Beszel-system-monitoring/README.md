@@ -4,8 +4,8 @@ Beszel is a lightweight server monitoring tool.\
 The setup requires a Beszel monitoring server + an agent on any of your machines you want to monitor.\
 You can run both in docker containers using docker compose.
 
-Server docker compose: LINK\
-Agent docker compose: LINK
+Server docker compose: [docker-compose-server.yml](https://github.com/Frog1y/My-Raspberry-Pi-Projects/blob/main/Beszel-system-monitoring/docker-compose-server.yml)\
+Agent docker compose: [docker-compose-agent.yml](https://github.com/Frog1y/My-Raspberry-Pi-Projects/blob/main/Beszel-system-monitoring/docker-compose-agent.yml)
 
 ## Administration
 Web Console: ```http://<YOUR_IP>:8090```
