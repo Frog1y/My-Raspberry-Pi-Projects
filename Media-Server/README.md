@@ -1,7 +1,7 @@
 # Media Server 
 
 Fully automated LAN media server using Jellyfin and the *arr stack. Running in a fleet of docker containers.\
-You request practically any movie or show -> the server requests, finds, downloads and serves your content in Jellyfin (Netflix style UI).
+You request movie or show -> the server requests, finds, downloads and serves your content in Jellyfin (Netflix style UI).
 
 # Setup
 If you are interested in installing and configuring this stack yourself, feel free to use my documentation:
