@@ -190,14 +190,6 @@ Edge case worth testing once: replug **during** the shutdown. The Pi may stay of
 | X1201 D1–D4 | Battery level: 4 on = 100% (3.87–4.2 V), 3 = 75%, 2 = 50%, 1 = 25%, none = below 3.4 V |
 | One level LED slowly blinking | Most likely charging (not documented by Geekworm) |
 
-## Troubleshooting: what went wrong during setup
-
-| Problem | Cause | Fix |
-|---|---|---|
-| `pinctrl get 6` showed `no pu \| --` | GPIO6 was not configured as an input | `sudo pinctrl set 6 ip pn` (the script does this itself) |
-| Python/gpiozero: `can not open gpiochip` / `BadPinFactory` | The lgpio library can't open the GPIO chip on Ubuntu 26.04 / kernel 7.0 (even with `chip=0`) | Dropped Python and used `pinctrl` in a bash script instead |
-| `Permission denied` when running the script | File was not executable | `sudo chmod +x /usr/local/bin/ups-shutdown.sh` |
-| Pi LED stayed red after shutdown; UPS stayed on; no auto-boot | Pi 5's default halt state keeps drawing power | `POWER_OFF_ON_HALT=1` in the EEPROM |
 
 ## Known limitations
 
