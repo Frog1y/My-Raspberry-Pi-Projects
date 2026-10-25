@@ -6,7 +6,7 @@ You request movie or show -> the server requests, finds, downloads and serves yo
 # Setup
 If you are interested in installing and configuring this stack yourself, feel free to use my documentation:
 
-LINK
+[Setup-guide.md](https://github.com/Frog1y/My-Raspberry-Pi-Projects/blob/main/Media-Server/Setup-guide.md)
 
 🔗 ```My Specs```
 
