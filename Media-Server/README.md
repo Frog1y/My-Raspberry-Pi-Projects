@@ -11,7 +11,7 @@ If you are interested in installing and configuring this stack yourself, feel fr
 🔗 ```My Specs```
 
 ```Prerequisites:``` A linux server/VM.\
-```Recommended specs:``` 4GB+ RAM. 50GB+ Storage. The more the merrier.\
+```Recommended specs:``` 4GB RAM. 50GB+ Storage (the more the better)
 
 ## Services/Docker Containers:
 ```Jellyfin```
