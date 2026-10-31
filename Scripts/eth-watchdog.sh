@@ -12,7 +12,7 @@
 # Checks if the router is reachable via eth0; if not, tries progressively stronger fixes.
 
 GW=$(ip route | awk '/default.*eth0/ {print $3; exit}')
-[ -z "$GW" ] && GW=192.168.1.1   # fallback: set your router IP
+[ -z "$GW" ] && GW=192.168.64.1   # fallback: set your router IP
 
 # Don't reboot within 30 min of boot (prevents reboot loops if the router is down)
 [ "$(cut -d. -f1 /proc/uptime)" -lt 1800 ] && NOREBOOT=1
