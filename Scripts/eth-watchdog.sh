@@ -4,34 +4,28 @@
 # journalctl -t eth-watchdog
 # journalctl -u eth-watchdog.service
 
-# Service;
-# /etc/systemd/system/eth-watchdog.service
-# /etc/systemd/system/eth-watchdog.timer
+# eth-watchdog: if the router stops answering on eth0, try soft resets and log what happened.
+# Runs every 2 minutes from eth-watchdog.timer.
+# Ran as a service /etc/systemd/system/eth-watchdog.service
 
+FALLBACK_GW=192.168.64.1   # <-- set to your router's IP (used only if eth0 has no default route)
 
-# Checks if the router is reachable via eth0; if not, tries progressively stronger fixes.
+GW=$(ip route show default dev eth0 2>/dev/null | awk '{print $3; exit}')
+GW=${GW:-$FALLBACK_GW}
 
-GW=$(ip route | awk '/default.*eth0/ {print $3; exit}')
-[ -z "$GW" ] && GW=192.168.64.1   # fallback: set your router IP
-
-# Don't reboot within 30 min of boot (prevents reboot loops if the router is down)
-[ "$(cut -d. -f1 /proc/uptime)" -lt 1800 ] && NOREBOOT=1
-
-check() { ping -c 3 -W 2 -I eth0 "$GW" >/dev/null; }
+log()   { logger -t eth-watchdog "$*"; }
+check() { ping -c 3 -W 2 -I eth0 "$GW" >/dev/null 2>&1; }
 
 check && exit 0
 
-logger -t eth-watchdog "gateway $GW unreachable, trying ethtool -r"
+CARRIER=$(cat /sys/class/net/eth0/carrier 2>/dev/null || echo unknown)
+log "gateway $GW unreachable (carrier=$CARRIER), trying renegotiate"
 ethtool -r eth0; sleep 15
-check && { logger -t eth-watchdog "recovered via renegotiate"; exit 0; }
+check && { log "recovered via renegotiate"; exit 0; }
 
-logger -t eth-watchdog "trying link down/up"
+log "trying link down/up"
 ip link set eth0 down; sleep 2; ip link set eth0 up; sleep 20
-check && { logger -t eth-watchdog "recovered via link bounce"; exit 0; }
+check && { log "recovered via link bounce"; exit 0; }
 
-if [ -z "$NOREBOOT" ]; then
-    logger -t eth-watchdog "still dead, rebooting"
-    systemctl reboot
-else
-    logger -t eth-watchdog "still dead, but uptime < 30 min, skipping reboot"
-fi
+log "still dead after soft fixes, power cycle needed"
+exit 1
