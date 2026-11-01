@@ -1,4 +1,10 @@
 #!/usr/bin/env bash
+# =============================================================================
+# Media Server update script
+# =============================================================================
+# DIR: /usr/local/bin/media-server-update.sh
+# SERVICE: /etc/systemd/system/media-server-update.service
+#          /etc/systemd/system/media-server-update.timer
 #
 # media-server-update.sh
 # Updates system packages, pulls the latest media-server container images,
