@@ -4,7 +4,7 @@
 # UPS shutdown on power loss script
 # =============================================================================
 # DIR: /usr/local/bin/ups-shutdown.sh
-# SERVICE: /etc/systemd/system/media-server-update.service    # every 5 seconds
+# SERVICE: /etc/systemd/system/ups-shutdown.service    # every 5 seconds
 
 # Shut down the Raspberry Pi cleanly when mains power is lost (Geekworm X1201).
 # Fail-safe: only counts as power lost when GPIO6 clearly reads "lo".
