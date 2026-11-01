@@ -22,5 +22,5 @@ Select your notification media.
 Follow Beszel official documentation:\
 https://beszel.dev/guide/notifications/
 
-I created a Discord web hook.\
+I created a Discord web hook. On my private Discord server.\
 You can configure notifications and alerts by clicking on the bell icon on any selected System.
