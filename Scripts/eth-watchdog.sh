@@ -4,7 +4,8 @@
 # =============================================================================
 # DIR: /usr/local/bin/eth-watchdog.sh
 # SERVICE: /etc/systemd/system/eth-watchdog.service
-#
+#          /etc/systemd/system/eth-watchdog.timer
+# 
 # WHY THIS EXISTS
 # ---------------
 # The Pi's onboard Ethernet (RP1 chip, "macb" driver) occasionally stops
@@ -38,7 +39,7 @@
 # Check the history with:  journalctl -t eth-watchdog
 # =============================================================================
 
-FALLBACK_GW=192.168.64.1   # <-- set to your router's IP (used only if eth0 has no default route)
+FALLBACK_GW=192.168.64.1   # <-- Router's IP (used only if eth0 has no default route)
 
 GW=$(ip route show default dev eth0 2>/dev/null | awk '{print $3; exit}')
 GW=${GW:-$FALLBACK_GW}
@@ -46,13 +47,15 @@ GW=${GW:-$FALLBACK_GW}
 log()   { logger -t eth-watchdog "$*"; }
 check() { ping -c 3 -W 2 -I eth0 "$GW" >/dev/null 2>&1; }
 
-check && exit 0
+check && exit 0            # <-- Exit if responsive to ping
 
+# Renegotiate
 CARRIER=$(cat /sys/class/net/eth0/carrier 2>/dev/null || echo unknown)
 log "gateway $GW unreachable (carrier=$CARRIER), trying renegotiate"
 ethtool -r eth0; sleep 15
 check && { log "recovered via renegotiate"; exit 0; }
 
+# Bounce
 log "trying link down/up"
 ip link set eth0 down; sleep 2; ip link set eth0 up; sleep 20
 check && { log "recovered via link bounce"; exit 0; }
