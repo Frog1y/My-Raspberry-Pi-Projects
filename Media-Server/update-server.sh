@@ -1,6 +1,5 @@
 #!/usr/bin/env bash
 #
-# media-update.sh
 # Updates system packages, pulls the latest media-server container images,
 # recreates any containers whose image changed, and prunes old images.
 # Output is logged to $LOG_DIR; only the newest $KEEP_LOGS logs are kept.
