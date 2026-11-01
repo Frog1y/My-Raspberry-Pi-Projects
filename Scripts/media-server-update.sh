@@ -20,7 +20,7 @@ LOG_DIR="<YOUR-LOG-PATH>"
 COMPOSE_DIR="<YOUR-DOCKER-COMPOSE-PATH>"
 KEEP_LOGS=5
 AUTO_REBOOT=false          # true = reboot automatically if a package update requires it
-LOCK_FILE="/run/media-update.lock"
+LOCK_FILE="/run/media-server-update.lock"
 # -----------------------------------------------------------------------------
 
 LOGFILE="$LOG_DIR/update-log_$(date +%Y-%m-%d_%H-%M).log"
